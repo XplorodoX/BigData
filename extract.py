@@ -15,7 +15,7 @@ def extrahiere_letzten_abschnitt(url):
     return url.rstrip('/').split('/')[-1]
 
 
-def kaggle_wettbewerbe_links(limit=20):
+def kaggle_wettbewerbe_links(limit=40):
     """
     Ruft die Links der neuesten Kaggle-Wettbewerbe ab.
 
@@ -28,10 +28,20 @@ def kaggle_wettbewerbe_links(limit=20):
     api = KaggleApi()
     try:
         api.authenticate()
-        # Ohne page_size, mit group='general'
-        wettbewerbe = api.competitions_list(sort_by='recentlyCreated', group='general')
-        links = [f"https://www.kaggle.com/competitions/{wettbewerb.ref}" for wettbewerb in wettbewerbe[:limit]]
-        return links
+        links = []
+        page = 1
+
+        while len(links) < limit:
+            # Wettbewerbe pro Seite abrufen
+            wettbewerbe = api.competitions_list(sort_by='recentlyCreated', group='general', page=page)
+            if not wettbewerbe:  # Keine weiteren Wettbewerbe
+                break
+            # URLs hinzufügen
+            links.extend([f"https://www.kaggle.com/competitions/{wettbewerb.ref}" for wettbewerb in wettbewerbe])
+            page += 1
+
+        # Begrenze auf die gewünschte Anzahl
+        return links[:limit]
     except Exception as e:
         print(f"Fehler beim Abrufen der Kaggle-Wettbewerbe: {e}")
         return []
@@ -60,7 +70,7 @@ def urls_zu_json(urls, output_file, kompakt=False):
 
 # Hauptlogik
 if __name__ == "__main__":
-    limit = 20
+    limit = 40
     output_file = 'kaggle_wettbewerbe.json'
 
     # Abrufen der Kaggle-Wettbewerbs-Links

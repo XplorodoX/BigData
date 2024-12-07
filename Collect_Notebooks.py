@@ -16,10 +16,18 @@ except json.JSONDecodeError:
 
 # Liste der Wettbewerbsnamen extrahieren
 competitions = list(competitions_json.values())
+
+
 # Funktion zum Herunterladen von Kernels eines Wettbewerbs
 def download_kernels_for_competition(competition):
     # Spezifischen Ordner für den Wettbewerb erstellen
     competition_dir = os.path.join("kaggle_notebooks", competition)
+
+    # Überprüfen, ob der Ordner bereits existiert
+    if os.path.exists(competition_dir):
+        print(f"Überspringe {competition}: Ordner '{competition_dir}' existiert bereits.")
+        return
+
     os.makedirs(competition_dir, exist_ok=True)
 
     try:
