@@ -1,10 +1,21 @@
+import json
 import os
 import subprocess
 
-# Wettbewerbe festlegen
-competitions = ["playground-series-s4e12", "playground-series-s4e11", "equity-post-HCT-survival-predictions", "llms-you-cant-please-them-all", "santa-2024"]
+# JSON-Datei einlesen
+json_file_path = "kaggle_wettbewerbe.json"  # Pfad zur JSON-Datei
+try:
+    with open(json_file_path, "r") as file:
+        competitions_json = json.load(file)
+except FileNotFoundError:
+    print(f"Fehler: Die Datei '{json_file_path}' wurde nicht gefunden.")
+    exit(1)
+except json.JSONDecodeError:
+    print(f"Fehler: Die Datei '{json_file_path}' enthält ungültiges JSON.")
+    exit(1)
 
-
+# Liste der Wettbewerbsnamen extrahieren
+competitions = list(competitions_json.values())
 # Funktion zum Herunterladen von Kernels eines Wettbewerbs
 def download_kernels_for_competition(competition):
     # Spezifischen Ordner für den Wettbewerb erstellen

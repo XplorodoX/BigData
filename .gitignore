@@ -6,3 +6,5 @@
 /.idea/vcs.xml
 /.idea/.gitignore
 /.idea/BigData.iml
+*.csv
+*.json
