@@ -21,7 +21,7 @@ CLUSTERING_ALGOS = [
     "CASHClustering", "DOCClustering", "FastDOCClustering", "PAMClustering", "CLARAClustering",
     "CLARANSClustering", "FastPAM", "ApproximatePAM", "BalancedIterativeReducingClustering",
     "IterativeDichotomiser3", "C45Algorithm", "C50Algorithm", "CHAIDAlgorithm", "DecisionStump",
-    "ConditionalDecisionTree", "RandomForest", "SLIQAlgorithm", "BayesianClustering",
+    "ConditionalDecisionTree", "RandomForestClassifier", "SLIQAlgorithm", "BayesianClustering",
     "NaiveBayesClustering", "GaussianNaiveBayesClustering", "MultinomialNaiveBayesClustering",
     "AODEClustering", "BayesianBeliefNetworkClustering", "BayesianNetworkClustering",
     "FisherDiscriminantClustering", "LinearRegressionClustering", "LogisticRegressionClustering",
