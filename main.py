@@ -118,6 +118,33 @@ def visualize_results_combined(results):
     plt.tight_layout()
     plt.show()
 
+def visualize_overall_algorithm_usage(results):
+    """Visualisiert die Gesamtverwendung der Clustering-Algorithmen über alle Wettbewerbe."""
+    algo_counts = defaultdict(int)
+
+    for notebooks in results.values():
+        for algos in notebooks.values():
+            for algo in algos:
+                algo_counts[algo] += 1
+
+    # Daten vorbereiten
+    algos = list(algo_counts.keys())
+    counts = list(algo_counts.values())
+
+    # Sortieren nach Häufigkeit
+    sorted_indices = np.argsort(counts)[::-1]
+    algos = [algos[i] for i in sorted_indices]
+    counts = [counts[i] for i in sorted_indices]
+
+    # Visualisierung
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.barh(algos, counts, color="skyblue")
+    ax.set_xlabel("Anzahl der Vorkommen")
+    ax.set_ylabel("Clustering-Algorithmus")
+    ax.set_title("Gesamthäufigkeit der Clustering-Algorithmen über alle Wettbewerbe")
+    plt.tight_layout()
+    plt.show()
+
 if __name__ == "__main__":
     # Hauptordner mit Wettbewerben eingeben
     main_folder_path = "/Users/merluee/PycharmProjects/BigData/kaggle_notebooks"
@@ -131,5 +158,6 @@ if __name__ == "__main__":
     # Ergebnisse visualisieren
     if results:
         visualize_results_combined(results)
+        visualize_overall_algorithm_usage(results)
     else:
         print("Keine Clustering-Algorithmen in den Notebooks gefunden.")
