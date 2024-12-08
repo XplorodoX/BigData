@@ -33,7 +33,7 @@ def kaggle_wettbewerbe_links(limit=40):
 
         while len(links) < limit:
             # Wettbewerbe pro Seite abrufen
-            wettbewerbe = api.competitions_list(sort_by='recentlyCreated', group='general', page=page)
+            wettbewerbe = api.competitions_list(sort_by='recentlyCreated', group='entered', page=page)
             if not wettbewerbe:  # Keine weiteren Wettbewerbe
                 break
             # URLs hinzufügen

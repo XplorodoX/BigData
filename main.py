@@ -7,7 +7,6 @@ import numpy as np
 
 CLUSTERING_ALGOS = [
     "KMeans", "DBSCAN", "AgglomerativeClustering", "SpectralClustering",
-
     "MeanShift", "AffinityPropagation", "Birch", "OPTICS", "GaussianMixture",
     "HierarchicalClustering", "FuzzyCMeans", "MiniBatchKMeans", "CanopyClustering",
     "SubspaceClustering", "SelfOrganizingMap", "KMedoids", "KPrototypes", "CLIQUE",
