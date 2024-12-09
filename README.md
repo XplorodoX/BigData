@@ -9,8 +9,6 @@ Dieses Repository wurde im Rahmen des Big Data Seminars an der Friedrich-Alexand
 3. [Abhängigkeiten](#abhängigkeiten)
 4. [Installation](#installation)
 5. [Nutzung](#nutzung)
-6. [Contributing](#contributing)
-7. [Lizenz](#lizenz)
 
 ## Überblick
 
@@ -69,24 +67,4 @@ Stelle sicher, dass folgende Python-Bibliotheken installiert sind:
 
 4. **Kernlogik testen**:
    - Verwende `algo.py` für eigene Analysen oder Tests.
-
-## Contributing
-
-Beiträge sind willkommen! Bitte folge diesen Schritten:
-
-1. Forke das Repository.
-2. Erstelle einen neuen Branch:
-   ```bash
-   git checkout -b feature/DeinFeatureName
-   ```
-3. Nimm deine Änderungen vor und committe sie:
-   ```bash
-   git commit -m "Beschreibung der Änderungen"
-   ```
-4. Push den Branch:
-   ```bash
-   git push origin feature/DeinFeatureName
-   ```
-5. Erstelle einen Pull-Request.
-
 ---
