@@ -1,0 +1,7 @@
+matplotlib
+kaggle
+pandas
+numpy
+os
+json
+sklearn
