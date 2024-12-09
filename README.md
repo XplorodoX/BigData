@@ -89,8 +89,4 @@ Beiträge sind willkommen! Bitte folge diesen Schritten:
    ```
 5. Erstelle einen Pull-Request.
 
-## Lizenz
-
-Dieses Projekt steht unter der MIT-Lizenz. Siehe die `LICENSE`-Datei für Details.
-
 ---
