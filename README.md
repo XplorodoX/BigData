@@ -1,70 +1,62 @@
-# Kaggle-Wettbewerbsanalyse und Datenextraktion
+# Kaggle Competition Notebook Scraper
 
-Dieses Repository wurde im Rahmen des Big Data Seminars an der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) entwickelt. Es enthält Python-Skripte und JSON-Dateien zur Analyse von Kaggle-Wettbewerben, zur Datenextraktion und zum Organisieren von Jupyter-Notebooks. Das Projekt ist Teil einer Seminararbeit und bietet eine praktische Anwendung von Datenanalyse- und Extraktionstechniken.
+Dieses Repository enthält ein Python-Skript, das automatisch Kaggle-Notebooks zu bestimmten Wettbewerben abruft und in einer Excel-Datei speichert. Zudem sind hier begleitende Dateien wie ein wissenschaftliches Paper und eine `requirements.txt`-Datei für die Abhängigkeiten enthalten.
 
-## Inhaltsverzeichnis
+## 📌 Features
+- Automatische Authentifizierung bei der Kaggle API
+- Abruf der aktuellsten Notebooks für vorgegebene Kaggle-Wettbewerbe
+- Speicherung der Notebook-Links mit zusätzlichen Metadaten in einer Excel-Datei
+- Fehlerbehandlung für ungültige oder nicht zugängliche Wettbewerbe
 
-1. [Überblick](#überblick)
-2. [Dateien und Verzeichnisstruktur](#dateien-und-verzeichnisstruktur)
-3. [Abhängigkeiten](#abhängigkeiten)
-4. [Installation](#installation)
-5. [Nutzung](#nutzung)
+## 📂 Projektstruktur
+```
+competition_notebook_scraper/
+│── competition_notebook_links/  # Enthält die generierte Excel-Datei mit Notebook-Links
+│── papers/                      # Enthält begleitende wissenschaftliche Paper
+│   └── Seminararbeit_Big_Data_En.tex  # Wissenschaftliches Paper zum Projekt
+│── README.md                    # Diese Datei
+│── requirements.txt              # Abhängigkeiten für das Skript
+│── scraper.py                    # Das Hauptskript
+```
 
-## Überblick
+## 🚀 Installation & Nutzung
+### 1️⃣ Voraussetzungen
+- Ein Kaggle-Account
+- Eine gültige `kaggle.json` API-Datei (muss im Verzeichnis `~/.kaggle/` oder in der Umgebungsvariable liegen)
+- Python 3.8 oder höher
 
-Dieses Projekt bietet Tools, um Daten von Kaggle-Wettbewerben zu analysieren und zu verarbeiten. Es umfasst Skripte zum Extrahieren, Sammeln und Verwalten von Daten sowie ein Beispiel-JSON für gespeicherte Wettbewerbsdaten. Ziel ist es, praktische Einblicke in die Herausforderungen und Lösungen im Bereich der Big Data Analyse zu vermitteln.
-
-## Dateien und Verzeichnisstruktur
-
-- **`algo.py`**: Enthält Algorithmen und Kernlogik.
-- **`Collect_Notebooks.py`**: Ein Skript zum Sammeln und Organisieren von Jupyter-Notebooks.
-- **`extract.py`**: Skript zur Datenextraktion aus JSON- oder anderen Quellen.
-- **`kaggle_wettbewerbe.json`**: Eine JSON-Datei mit Links zu Kaggle-Wettbewerben und deren Kurzbezeichnungen.
-- **`main.py`**: Hauptskript zur Initialisierung und Verwaltung des gesamten Workflows.
-
-## Abhängigkeiten
-
-Stelle sicher, dass folgende Python-Bibliotheken installiert sind:
-
-- `pandas`
-- `numpy`
-- `requests`
-- `json`
-- `os`
-- Weitere in den Skripten spezifizierte Abhängigkeiten
-
-## Installation
-
+### 2️⃣ Installation
 1. Klone das Repository:
    ```bash
-   git clone https://github.com/dein-username/kaggle-analyse.git
+   git clone https://github.com/dein-nutzername/competition_notebook_scraper.git
+   cd competition_notebook_scraper
    ```
-2. Navigiere ins Verzeichnis:
-   ```bash
-   cd kaggle-analyse
-   ```
-3. Installiere die Abhängigkeiten:
+2. Installiere die Abhängigkeiten:
    ```bash
    pip install -r requirements.txt
    ```
 
-## Nutzung
+### 3️⃣ Nutzung
+Führe das Skript aus, um die Notebooks abzurufen:
+```bash
+python scraper.py
+```
 
-1. **JSON-Datenanalyse**:
-   - Öffne und bearbeite die Datei `kaggle_wettbewerbe.json`, um neue Wettbewerbe hinzuzufügen.
-   
-2. **Datenextraktion**:
-   - Führe `extract.py` aus, um Daten aus JSON-Dateien oder APIs zu extrahieren:
-     ```bash
-     python extract.py
-     ```
+Die generierte Excel-Datei wird im Ordner `competition_notebook_links/` gespeichert.
 
-3. **Notebooks sammeln**:
-   - Starte `Collect_Notebooks.py`, um Notebooks in einem Ordner zu organisieren:
-     ```bash
-     python Collect_Notebooks.py
-     ```
+## 📝 Anpassungen
+Falls du eigene Wettbewerbe durchsuchen möchtest, kannst du die `competitions_json`-Variable in `scraper.py` anpassen und die entsprechenden Slugs und URLs hinzufügen.
 
-4. **Kernlogik testen**:
-   - Verwende `algo.py` für eigene Analysen oder Tests.
+## 📜 Wissenschaftliches Paper
+Das begleitende wissenschaftliche Paper **Seminararbeit_Big_Data_En.tex** befindet sich im Ordner `papers/`. Es dokumentiert die Methodik und die Ergebnisse dieses Projekts.
+
+## 🔧 Fehlerbehandlung
+- Falls ein Wettbewerb nicht existiert oder du keinen Zugriff hast, wird dies im Terminal angezeigt.
+- Falls keine Notebooks für einen Wettbewerb gefunden werden, wird der Wettbewerb übersprungen.
+
+## 📜 Lizenz
+Dieses Projekt steht unter der MIT-Lizenz. Siehe [LICENSE](LICENSE) für weitere Details.
+
 ---
+Made with ❤️ by [Dein Name]
+
