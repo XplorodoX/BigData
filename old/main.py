@@ -33,7 +33,7 @@ CLUSTERING_ALGOS = [
     "AgglomerativeHierarchicalClustering", "DivisiveHierarchicalClustering", "DensityBasedSpatialClustering",
     "DensityBasedClustering", "ModelBasedClustering", "GridBasedClustering", "SubspaceClustering",
     "CoClustering", "Biclustering", "SpectralBiclustering", "LatentClassAnalysis", "DBCLASD",
-    "ROCKClustering", "WaveCluster", "STINGClustering"
+    "ROCKClustering", "WaveCluster", "STINGClustering", "BayesianGaussianMixture"
 ]
 
 def search_notebooks_in_competitions(main_folder):

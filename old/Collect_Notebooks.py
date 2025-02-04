@@ -3,11 +3,13 @@ import os
 import subprocess
 
 # JSON-Datei einlesen
-json_file_path = "kaggle_wettbewerbe.json"  # Pfad zur JSON-Datei
+
+json_file_path = "../kaggle_wettbewerbe.json"  # Pfad zur JSON-Datei
 try:
     with open(json_file_path, "r") as file:
         competitions_json = json.load(file)
-        competitions = competitions_json.get("competitions", [])
+        # Extrahiere die Wettbewerbsnamen aus den JSON-Schlüsseln
+        competitions = [value for key, value in competitions_json.items()]
         if not competitions:
             print("Fehler: Keine Wettbewerbe in der Datei gefunden.")
             exit(1)

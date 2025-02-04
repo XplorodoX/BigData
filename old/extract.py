@@ -71,7 +71,7 @@ def urls_zu_json(urls, output_file, kompakt=False):
 # Hauptlogik
 if __name__ == "__main__":
     limit = 40
-    output_file = 'kaggle_wettbewerbe.json'
+    output_file = '../kaggle_wettbewerbe.json'
 
     # Abrufen der Kaggle-Wettbewerbs-Links
     urls = kaggle_wettbewerbe_links(limit)
