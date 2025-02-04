@@ -58,5 +58,5 @@ Das begleitende wissenschaftliche Paper **Seminararbeit_Big_Data_En.tex** befind
 Dieses Projekt steht unter der MIT-Lizenz. Siehe [LICENSE](LICENSE) für weitere Details.
 
 ---
-Made with ❤️ by [Dein Name]
+Made with ❤️ by [Florian Merlau]
 
