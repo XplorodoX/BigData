@@ -12,11 +12,10 @@ Clustering-Algorithmen angewandt:
     - GaussianMixture
     - BayesianGaussianMixture
 
-Dabei wird zuerst geprüft, ob die Spalten 'x' und 'y' existieren (ansonsten werden
-alle numerischen Spalten verwendet). Die Daten werden skaliert, danach wird
-jedem Modell das Clustering zugeordnet, der Silhouette-Score berechnet und die
-Ergebnisse werden in einem Plot visualisiert. Die Plots werden zusätzlich als PNG
-gespeichert.
+Dabei wird geprüft, ob die Spalten 'x' und 'y' existieren (ansonsten werden
+alle numerischen Spalten verwendet). Die Daten werden skaliert, anschließend
+wird jedem Modell das Clustering zugeordnet, der Silhouette-Score berechnet und
+die Ergebnisse werden in einem Plot visualisiert. Der Plot wird zudem als PDF gespeichert.
 """
 
 import os
@@ -103,7 +102,7 @@ def perform_clustering(model, data, algorithm_name=""):
         try:
             score = silhouette_score(data, labels)
         except Exception as e:
-            print(f"Fehler beim Berechnen des Silhouette-Scores für {algorithm_name}: {e}")
+            print(f"Fehler bei Berechnen des Silhouette-Scores für {algorithm_name}: {e}")
             score = None
 
     print(f"{algorithm_name}: {len(unique_labels)} Cluster, Silhouette-Score = {score}")
@@ -116,7 +115,7 @@ def plot_clustering_results(data, labels_dict, silhouette_dict, file_name):
 
     Falls die Dimensionen >2 betragen, wird mittels PCA auf 2 Dimensionen reduziert.
     Die Visualisierung erfolgt in einem Grid, dessen Größe sich dynamisch nach der
-    Anzahl der Modelle richtet. Der Plot wird gespeichert.
+    Anzahl der Modelle richtet. Der Plot wird als PDF gespeichert.
 
     Parameter:
         data (ndarray): (ggf. reduzierte) Daten.
@@ -137,7 +136,6 @@ def plot_clustering_results(data, labels_dict, silhouette_dict, file_name):
     n_rows = math.ceil(n_algorithms / n_cols)
 
     fig, axes = plt.subplots(n_rows, n_cols, figsize=(6 * n_cols, 5 * n_rows))
-    # Falls es nur einen Plot gibt oder wenn axes ein 2D-Array ist
     if n_rows == 1 and n_cols == 1:
         axes = np.array([[axes]])
     elif n_rows == 1:
@@ -145,7 +143,6 @@ def plot_clustering_results(data, labels_dict, silhouette_dict, file_name):
     elif n_cols == 1:
         axes = np.array([[ax] for ax in axes])
 
-    # Flache Liste der Achsen zum einfachen Durchlaufen
     axes_flat = axes.flatten()
 
     for idx, algo in enumerate(algorithms):
@@ -166,15 +163,16 @@ def plot_clustering_results(data, labels_dict, silhouette_dict, file_name):
 
     plt.suptitle(f"Clustering Ergebnisse für: {os.path.basename(file_name)}", fontsize=16)
     plt.tight_layout(rect=[0, 0, 1, 0.95])
-    output_file = f"clustering_result_{os.path.basename(file_name).split('.')[0]}.png"
-    plt.savefig(output_file)
+    # Speichere den Plot als PDF
+    output_file = f"clustering_result_{os.path.basename(file_name).split('.')[0]}.pdf"
+    plt.savefig(output_file, format='pdf')
     print(f"Plot gespeichert als: {output_file}")
     plt.show()
 
 
 def main():
     # Ordner, in dem sich die CSV-Dateien befinden (anpassen!)
-    dataset_folder = "archive"  # Beispielordner
+    dataset_folder = "archive"
     csv_files = glob.glob(os.path.join(dataset_folder, "*.csv"))
 
     if not csv_files:
