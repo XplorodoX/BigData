@@ -1,62 +1,62 @@
-# Kaggle Competition Notebook Scraper
+# Vergleich von häufigsten Clustering-Algorithmen auf Kaggle
 
-Dieses Repository enthält ein Python-Skript, das automatisch Kaggle-Notebooks zu bestimmten Wettbewerben abruft und in einer Excel-Datei speichert. Zudem sind hier begleitende Dateien wie ein wissenschaftliches Paper und eine `requirements.txt`-Datei für die Abhängigkeiten enthalten.
+Dieses Repository enthält den Quellcode und die begleitenden Materialien zur Seminararbeit *"Vergleich von häufigsten Clustering-Algorithmen auf Kaggle"* von Florian Merlau. Die Arbeit entstand im Rahmen des Big Data Seminars (WS 2024/2025) an der Friedrich-Alexander-Universität Erlangen-Nürnberg.
 
-## 📌 Features
-- Automatische Authentifizierung bei der Kaggle API
-- Abruf der aktuellsten Notebooks für vorgegebene Kaggle-Wettbewerbe
-- Speicherung der Notebook-Links mit zusätzlichen Metadaten in einer Excel-Datei
-- Fehlerbehandlung für ungültige oder nicht zugängliche Wettbewerbe
+## Überblick
 
-## 📂 Projektstruktur
-```
-competition_notebook_scraper/
-│── competition_notebook_links/  # Enthält die generierte Excel-Datei mit Notebook-Links
-│── papers/                      # Enthält begleitende wissenschaftliche Paper
-│   └── Seminararbeit_Big_Data_En.tex  # Wissenschaftliches Paper zum Projekt
-│── README.md                    # Diese Datei
-│── requirements.txt              # Abhängigkeiten für das Skript
-│── scraper.py                    # Das Hauptskript
-```
+Die Seminararbeit untersucht systematisch den Einsatz und die Performance gängiger Clustering-Algorithmen in Kaggle-Wettbewerben. Im Fokus stehen Verfahren wie:
+- **K-Means**
+- **Agglomerative Clustering**
+- **Spectral Clustering**
+- **Gaussian Mixture Models (GMM)**
+- **Bayesian Gaussian Mixture Models (BGMM)**
 
-## 🚀 Installation & Nutzung
-### 1️⃣ Voraussetzungen
-- Ein Kaggle-Account
-- Eine gültige `kaggle.json` API-Datei (muss im Verzeichnis `~/.kaggle/` oder in der Umgebungsvariable liegen)
-- Python 3.8 oder höher
+Dabei wird analysiert, welche Algorithmen in der Praxis am häufigsten verwendet werden und wie sie sich in unterschiedlichen Datenszenarien verhalten – von klar abgegrenzten Clustern bis hin zu komplexen, nicht-konvexen Strukturen.
 
-### 2️⃣ Installation
-1. Klone das Repository:
-   ```bash
-   git clone https://github.com/dein-nutzername/competition_notebook_scraper.git
-   cd competition_notebook_scraper
-   ```
-2. Installiere die Abhängigkeiten:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Repository-Struktur
 
-### 3️⃣ Nutzung
-Führe das Skript aus, um die Notebooks abzurufen:
-```bash
-python scraper.py
-```
+- **Seminararbeit_Big_Data.pdf**  
+  Enthält den vollständigen Bericht der Seminararbeit.
 
-Die generierte Excel-Datei wird im Ordner `competition_notebook_links/` gespeichert.
+- **/src**  
+  Python-Skripte zur automatisierten Erfassung, Analyse und Aufbereitung der Daten aus Kaggle-Wettbewerben.
 
-## 📝 Anpassungen
-Falls du eigene Wettbewerbe durchsuchen möchtest, kannst du die `competitions_json`-Variable in `scraper.py` anpassen und die entsprechenden Slugs und URLs hinzufügen.
+- **/data**  
+  Beispieldatensätze, generierte Excel-Dateien und weitere Analysedaten.
 
-## 📜 Wissenschaftliches Paper
-Das begleitende wissenschaftliche Paper **Seminararbeit_Big_Data_En.tex** befindet sich im Ordner `papers/`. Es dokumentiert die Methodik und die Ergebnisse dieses Projekts.
+- **/notebooks**  
+  Jupyter Notebooks zur Visualisierung der Ergebnisse und zur weiteren explorativen Analyse.
 
-## 🔧 Fehlerbehandlung
-- Falls ein Wettbewerb nicht existiert oder du keinen Zugriff hast, wird dies im Terminal angezeigt.
-- Falls keine Notebooks für einen Wettbewerb gefunden werden, wird der Wettbewerb übersprungen.
+## Voraussetzungen
 
-## 📜 Lizenz
-Dieses Projekt steht unter der MIT-Lizenz. Siehe [LICENSE](LICENSE) für weitere Details.
+- **Python 3.x**
+- Benötigte Bibliotheken (siehe `requirements.txt`):  
+  `pandas`, `numpy`, `matplotlib`, `kaggle` (API), etc.
+- (Optional) Ein gültiger Kaggle API-Key, um Notebooks und Wettbewerbsdaten automatisiert abzurufen.
 
----
-Made with ❤️ by [Florian Merlau]
+## Installation
 
+1. **Repository klonen:**
+    ```bash
+    git clone https://github.com/XplorodoX/BigData.git
+    ```
+
+2. **In das Repository-Verzeichnis wechseln:**
+    ```bash
+    cd BigData
+    ```
+
+3. **Abhängigkeiten installieren:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **(Optional) Kaggle API konfigurieren:**
+    - Erstelle eine Datei namens `kaggle.json` mit deinen API-Anmeldedaten und platziere sie im Verzeichnis `~/.kaggle/`.
+
+## Nutzung
+
+- **Datenabruf und Analyse:**  
+  Führe das Skript `src/fetch_and_analyze.py` aus, um Notebooks von Kaggle abzurufen und die Daten zu analysieren:
+  ```bash
+  python src/fetch_and_analyze.py
