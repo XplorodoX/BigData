@@ -15,23 +15,6 @@ Die Seminararbeit untersucht den Einsatz und die Performance gängiger Clusterin
 - **Bayesian Gaussian Mixture Models (BGMM)**  
 
 Anhand öffentlich verfügbarer Kaggle-Notebooks wird analysiert, welche Algorithmen am häufigsten genutzt werden und wie sie sich bei unterschiedlich strukturierten Datensätzen (z. B. klar abgegrenzte Cluster vs. komplexe, nicht-konvexe Strukturen) verhalten.
-
----
-
-## Repository-Struktur
-
-- **Seminararbeit_Big_Data.pdf**  
-  Enthält die vollständige Ausarbeitung (Seminararbeit).
-
-- **/src**  
-  Python-Skripte zur automatisierten Erfassung, Analyse und Aufbereitung der Daten aus Kaggle-Wettbewerben.
-
-- **/data**  
-  Beispieldatensätze, generierte Excel-Dateien und weitere Analyseergebnisse.
-
-- **/notebooks**  
-  Jupyter Notebooks zur interaktiven Visualisierung und Exploration der Ergebnisse.
-
 ---
 
 ## Voraussetzungen
