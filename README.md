@@ -1,4 +1,4 @@
-# Vergleich von häufigsten Clustering-Algorithmen auf Kaggle
+# Vergleich von häufigste Clustering-Algorithmen auf Kaggle
 
 Willkommen in diesem Repository! Hier findest du den Quellcode sowie alle begleitenden Materialien zur Seminararbeit *„Vergleich von häufigsten Clustering-Algorithmen auf Kaggle“* von Florian Merlau. Die Arbeit entstand im Rahmen des Big Data Seminars (WS 2024/2025) an der Friedrich-Alexander-Universität Erlangen-Nürnberg.
 
